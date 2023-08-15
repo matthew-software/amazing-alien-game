@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cr0osf7aveaj8"]
+
+[node name="Foreground" type="ParallaxBackground"]
+layer = 0
+
+[node name="PowerLines" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Parallax5" type="Sprite2D" parent="PowerLines"]
+position = Vector2(160, 90)

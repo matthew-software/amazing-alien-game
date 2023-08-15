@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ckntcwmeo670w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udmr3"]
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/styles/normal = SubResource("StyleBoxEmpty_udmr3")

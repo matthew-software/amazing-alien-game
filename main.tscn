@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://b48e56j6tb5pg"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_pjt6b"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pjt6b")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 8.0
+offset_right = 155.0
+offset_bottom = 42.0
+text = "Level 1"
+
+[node name="Play2" type="Button" parent="."]
+offset_left = 27.0
+offset_top = 47.0
+offset_right = 155.0
+offset_bottom = 78.0
+text = "Level 2"
+
+[node name="Play3" type="Button" parent="."]
+offset_left = 28.0
+offset_top = 82.0
+offset_right = 156.0
+offset_bottom = 113.0
+text = "Level 3"
+
+[node name="Play4" type="Button" parent="."]
+offset_left = 164.0
+offset_top = 10.0
+offset_right = 262.0
+offset_bottom = 111.0
+text = "Final Boss"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 119.0
+offset_right = 286.0
+offset_bottom = 174.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play2" to="." method="_on_play_2_pressed"]
+[connection signal="pressed" from="Play3" to="." method="_on_play_3_pressed"]
+[connection signal="pressed" from="Play4" to="." method="_on_play_4_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
