@@ -1,7 +1,7 @@
 extends ParallaxLayer
 
 
-var cloud_speed = 1
+var cloud_speed = 2
 
 
 func _process(delta):

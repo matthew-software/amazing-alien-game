@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvul4rgmjij2m"
-path="res://.godot/imported/parallax_foreground.png-b91fa043bff633929e477b506d4aa07f.ctex"
+uid="uid://bfvvnul80u8ji"
+path="res://.godot/imported/super_player_soar.png-071d1f14ec10b1d2007159ac95d70dea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/backgrounds/parallax_foreground.png"
-dest_files=["res://.godot/imported/parallax_foreground.png-b91fa043bff633929e477b506d4aa07f.ctex"]
+source_file="res://art/spritesheets/player/super_player_soar.png"
+dest_files=["res://.godot/imported/super_player_soar.png-071d1f14ec10b1d2007159ac95d70dea.ctex"]
 
 [params]
 

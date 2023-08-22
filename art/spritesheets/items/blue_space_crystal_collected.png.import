@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvul4rgmjij2m"
-path="res://.godot/imported/parallax_foreground.png-b91fa043bff633929e477b506d4aa07f.ctex"
+uid="uid://cp886788xv72p"
+path="res://.godot/imported/blue_space_crystal_collected.png-0797088258129f0f6830cd4f27eb9f24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/backgrounds/parallax_foreground.png"
-dest_files=["res://.godot/imported/parallax_foreground.png-b91fa043bff633929e477b506d4aa07f.ctex"]
+source_file="res://art/spritesheets/items/blue_space_crystal_collected.png"
+dest_files=["res://.godot/imported/blue_space_crystal_collected.png-0797088258129f0f6830cd4f27eb9f24.ctex"]
 
 [params]
 

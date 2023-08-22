@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvul4rgmjij2m"
-path="res://.godot/imported/parallax_foreground.png-b91fa043bff633929e477b506d4aa07f.ctex"
+uid="uid://derxerf0ipqad"
+path="res://.godot/imported/fire_tileset.png-5aefe76341b3b79d5cc69fdb6e64cb61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/backgrounds/parallax_foreground.png"
-dest_files=["res://.godot/imported/parallax_foreground.png-b91fa043bff633929e477b506d4aa07f.ctex"]
+source_file="res://art/tilesets/fire_tileset.png"
+dest_files=["res://.godot/imported/fire_tileset.png-5aefe76341b3b79d5cc69fdb6e64cb61.ctex"]
 
 [params]
 

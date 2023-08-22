@@ -5,7 +5,7 @@ layer = 0
 
 [node name="PowerLines" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(1.5, 1.5)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(640, 0)
 
-[node name="Parallax5" type="Sprite2D" parent="PowerLines"]
+[node name="Parallax6" type="Sprite2D" parent="PowerLines"]
 position = Vector2(160, 90)
