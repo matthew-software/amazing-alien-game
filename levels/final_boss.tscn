@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://2xi0280dnfp3"]
+[gd_scene load_steps=20 format=3 uid="uid://2xi0280dnfp3"]
 
 [ext_resource type="Texture2D" uid="uid://cj4unpsjil6cr" path="res://art/tilesets/dungeon_tileset.png" id="1_a2qmm"]
 [ext_resource type="Texture2D" uid="uid://cf8pa6xr5mhk3" path="res://art/backgrounds/parallax_night_sky.png" id="1_hk72f"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0km3qim22h5h" path="res://player/super_player.tscn" id="10_gva7r"]
 [ext_resource type="Texture2D" uid="uid://cvul4rgmjij2m" path="res://art/backgrounds/parallax_foreground.png" id="12_4veie"]
 [ext_resource type="PackedScene" uid="uid://yex5sd6v1s3m" path="res://boss/super_boss.tscn" id="12_dvkq1"]
+[ext_resource type="PackedScene" uid="uid://cfv81cv7x8q8m" path="res://enemies/mole.tscn" id="14_qknmu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aidg"]
 texture = ExtResource("1_a2qmm")
@@ -621,12 +622,12 @@ layer_0/tile_data = PackedInt32Array(655360, 655360, 0, 2621440, 589824, 2, 6553
 
 [node name="Player" type="Node2D" parent="."]
 
+[node name="Player" parent="Player" instance=ExtResource("8_xui8w")]
+position = Vector2(192, 448)
+
 [node name="SuperPlayer" parent="Player" instance=ExtResource("10_gva7r")]
 visible = false
 position = Vector2(264, 448)
-
-[node name="Player" parent="Player" instance=ExtResource("8_xui8w")]
-position = Vector2(197, 346)
 
 [node name="Boss" type="Node2D" parent="."]
 
@@ -668,3 +669,6 @@ theme_override_font_sizes/font_size = 10
 text = "Crystals"
 script = SubResource("GDScript_owh7e")
 metadata/_edit_use_anchors_ = true
+
+[node name="Rat" parent="." instance=ExtResource("14_qknmu")]
+position = Vector2(256, 640)

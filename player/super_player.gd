@@ -23,6 +23,12 @@ var falling = false
 var slow = false
 
 
+func _ready():
+	# Zoom back out for final boss level
+	if get_tree().current_scene.name == "FinalBoss":
+		$Camera2D.zoom = Vector2(1,1)
+
+
 func _physics_process(delta):
 
 	# Check if going slow (pressing shift)
