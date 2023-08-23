@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do18lmqw7mule"]
+
+[ext_resource type="Script" path="res://enemies/mammal.gd" id="1_pr78r"]
+
+[node name="Mammal" type="CharacterBody2D"]
+script = ExtResource("1_pr78r")

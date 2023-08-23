@@ -1,18 +1,9 @@
-extends CharacterBody2D
-
-const SPEED = 30
-
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var player
-
-@onready var anim = get_node("AnimatedSprite2D")
-@onready var death_sound = $DeathSound
-
-var direction = self.position.normalized()
+extends Enemy
 
 
 func _ready():
-	player = get_node("../../Player/Player")
+	super()
+	speed = 0
 	anim.play("Idle")
 	$PlayerCollision/CollisionShape2D.set_deferred("disabled", true)
 
@@ -24,55 +15,19 @@ func _physics_process(delta):
 		move_and_slide()
 
 
-func face_player():
-	direction = (player.position - self.position).normalized()
-	if direction.x > 0:
-		get_node("AnimatedSprite2D").flip_h = false
-	else:
-		get_node("AnimatedSprite2D").flip_h = true
-
-
-func is_facing_player():
-	direction = (player.position - self.position).normalized()
-	if direction.x > 0:
-		if get_node("AnimatedSprite2D").flip_h == false:
-			return true
-	elif get_node("AnimatedSprite2D").flip_h == true:
-		return true
-	
-	return false
-
-
-func death():
-	$CollisionShape2D.set_deferred("disabled", true)
-	anim.play("Death")
-	death_sound.play()
-	await anim.animation_finished
-	self.queue_free()
-
-
+# When facing player, or not facing player but player not slow, face player and attack
 func _on_player_detection_body_entered(body):
 	if body.name == "Player":
-		if (body.slow == false) or ((body.slow == true) and (is_facing_player() == true)):
-			face_player()
-			anim.play("Attack")
-			$PlayerCollision/CollisionShape2D.set_deferred("disabled", false)
+		if anim.animation != "Death":
+			if (body.slow == false) or ((body.slow == true) and (is_facing_player() == true)):
+				face_player()
+				anim.play("Attack")
+				$PlayerCollision/CollisionShape2D.set_deferred("disabled", false)
 
 
+# If player leaves vicinity, idle
 func _on_player_detection_body_exited(body):
 	if body.name == "Player":
-		anim.play("Idle")
-		$PlayerCollision/CollisionShape2D.set_deferred("disabled", true)
-
-
-func _on_death_body_entered(body):
-	if body.name == "Player":
 		if anim.animation != "Death":
-			death()
-			body.extra_jump = true
-
-
-func _on_player_collision_body_entered(body):
-	if body.name == "Player":
-		if anim.animation != "Death":
-			body.alive = false
+			anim.play("Idle")
+			$PlayerCollision/CollisionShape2D.set_deferred("disabled", true)

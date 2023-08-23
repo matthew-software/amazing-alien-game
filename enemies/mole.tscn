@@ -85,7 +85,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -111,7 +111,7 @@ size = Vector2(21, 8.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gw23"]
 size = Vector2(23, 9.5)
 
-[node name="Rat" type="CharacterBody2D"]
+[node name="Mole" type="CharacterBody2D"]
 script = ExtResource("1_2qd3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -121,7 +121,7 @@ shape = SubResource("RectangleShape2D_ok01y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ink5a")
-animation = &"Run"
+animation = &"Death"
 
 [node name="Death" type="Area2D" parent="."]
 
