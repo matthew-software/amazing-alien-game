@@ -4,6 +4,7 @@ class_name Enemy
 @export var speed: int = 30
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
+var super_player
 
 @onready var anim = get_node("AnimatedSprite2D")
 @onready var death_sound = $DeathSound
@@ -42,15 +43,18 @@ func is_facing_player():
 	return false
 
 
+func chase():
+	face_player()
+	velocity.x = direction.x * speed
+	velocity.y = direction.y * speed
+
+
 func death():
 	$CollisionShape2D.set_deferred("disabled", true)
 	anim.play("Death")
 	death_sound.play()
 	await anim.animation_finished
-	print("commence.")
-	print("ABOUT TO FREEEEE")
 	self.queue_free()
-	print("...............................................free")
 
 
 # On death, player "extra jumps"

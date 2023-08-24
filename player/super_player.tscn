@@ -1,5 +1,6 @@
 [gd_scene load_steps=95 format=3 uid="uid://c0km3qim22h5h"]
 
+[ext_resource type="Script" path="res://player/super_player.gd" id="1_5mcr5"]
 [ext_resource type="Texture2D" uid="uid://xeuv6t082amy" path="res://art/spritesheets/player/super_player_fly.png" id="2_ibve4"]
 [ext_resource type="Texture2D" uid="uid://cf5kmnu7gbflw" path="res://art/spritesheets/player/super_player_idle.png" id="3_1u2tv"]
 [ext_resource type="Texture2D" uid="uid://cf7wyeufq40b1" path="res://art/spritesheets/player/super_player_fly_down.png" id="3_o11u7"]
@@ -10,95 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bu5ialxrr6kc2" path="res://art/spritesheets/player/super_player_soar_up.png" id="8_7ja7p"]
 [ext_resource type="AudioStream" uid="uid://hlh66smpo268" path="res://audio/jump_second.wav" id="8_mn2fg"]
 [ext_resource type="AudioStream" uid="uid://ccrbn31mhlgt5" path="res://audio/jump_super.wav" id="9_45gqp"]
-
-[sub_resource type="GDScript" id="GDScript_yomd4"]
-script/source = "extends CharacterBody2D
-
-
-const SPEED = 150.0
-const SLOW_SPEED = 50.0
-
-var alive = true
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
-
-@onready var anim = get_node(\"AnimationPlayer\")
-@onready var jump_sound = $JumpSound
-@onready var jump_second_sound = $JumpSecondSound
-@onready var jump_super_sound = $JumpSuperSound
-
-var directionx
-var directiony
-var jumps = 2
-var extra_jump = false
-var super_jump = false
-var falling = false
-var slow = false
-
-
-func _ready():
-	# Zoom back out for final boss level
-	if get_tree().current_scene.name == \"FinalBoss\":
-		$Camera2D.zoom = Vector2(1,1)
-
-
-func _physics_process(delta):
-
-	# Check if going slow (pressing shift)
-	if Input.is_action_pressed(\"slow\"):
-		slow = true
-	else:
-		slow = false
-	# Get the input direction and handle the movement/deceleration.
-	directionx = Input.get_axis(\"ui_left\", \"ui_right\")
-	directiony = Input.get_axis(\"ui_up\", \"ui_down\")
-	
-	# Flip direction if Player turns around
-	if directionx == -1:
-		get_node(\"AnimatedSprite2D\").flip_h = true
-	elif directionx == 1:
-		get_node(\"AnimatedSprite2D\").flip_h = false
-	
-	# Handle flying (with sideways movement involved).
-	if directionx:
-		if slow:
-			velocity.x = directionx * SLOW_SPEED
-			velocity.y = directiony * SLOW_SPEED
-			anim.play(\"Fly\")
-		else:
-			velocity.x = directionx * SPEED
-			velocity.y = directiony * SPEED
-			anim.play(\"Soar\")
-	# Handle flying directly up or down.
-	elif directiony:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		get_node(\"AnimatedSprite2D\").flip_h = false
-		if slow:
-			velocity.y = directiony * SLOW_SPEED
-			if directiony < 0:
-				anim.play(\"FlyUp\")
-			else:
-				anim.play(\"FlyDown\")
-		else:
-			velocity.y = directiony * SPEED
-			if directiony < 0:
-				anim.play(\"SoarUp\")
-			else:
-				anim.play(\"SoarDown\")
-	# Handle stopping.
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-		anim.play(\"Idle\")
-
-	move_and_slide()
-	
-	if alive == false:
-		Game.lives -= 1
-		queue_free()
-		get_tree().change_scene_to_file(\"res://main.tscn\")
-"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kee2e"]
 radius = 5.0
@@ -884,7 +796,7 @@ _data = {
 }
 
 [node name="SuperPlayer" type="CharacterBody2D"]
-script = SubResource("GDScript_yomd4")
+script = ExtResource("1_5mcr5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)

@@ -13,16 +13,10 @@ func _physics_process(delta):
 	if anim.animation != "Death":
 		#velocity.y += gravity * delta
 		if chasing == true:
+			anim.play("Fly")
 			chase()
 	
 		move_and_slide()
-
-
-func chase():
-	face_player()
-	anim.play("Fly")
-	velocity.y = direction.y * speed
-	velocity.x = direction.x * speed
 
 
 # When facing player, or not facing player but player not slow, face player and attack
