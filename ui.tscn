@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://os7pu0ati6qk"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_am2fr"]
+[ext_resource type="FontFile" uid="uid://tshmrijek1ci" path="res://retro_gaming.ttf" id="2_5j48s"]
+[ext_resource type="Texture2D" uid="uid://iif1wrdt7spc" path="res://art/ui/blue_space_crystal_progress_empty.png" id="2_qidvv"]
+[ext_resource type="Texture2D" uid="uid://c8ujfux4xhqq3" path="res://art/ui/blue_space_crystal_progress_full.png" id="3_o03pr"]
+[ext_resource type="PackedScene" uid="uid://d08se015voeqa" path="res://main_menu.tscn" id="5_ny5vo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j46as"]
+atlas = ExtResource("3_o03pr")
+region = Rect2(0, 0, 64, 64)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_am2fr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CrystalProgress" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 30.0
+fill_mode = 3
+texture_under = ExtResource("2_qidvv")
+texture_progress = SubResource("AtlasTexture_j46as")
+
+[node name="CrystalLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5j48s")
+
+[node name="MainMenu" parent="Control" instance=ExtResource("5_ny5vo")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[connection signal="start_game" from="Control/MainMenu" to="." method="_on_main_menu_start_game"]

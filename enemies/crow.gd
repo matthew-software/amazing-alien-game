@@ -11,7 +11,7 @@ func _physics_process(delta):
 
 # If player is close by and not looking, approach
 func sneak():
-	if anim.flip_h != get_node("../../Player/Player/AnimatedSprite2D").flip_h:
+	if anim.flip_h != player.get_node("AnimatedSprite2D").flip_h:
 		direction = (player.position - self.position).normalized()
 		if direction.x > 0:
 			anim.flip_h = false

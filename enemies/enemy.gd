@@ -14,12 +14,12 @@ var direction = self.position.normalized()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_node("../../Player/Player")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _physics_process(delta):
+	player = get_tree().root.get_node("Main").get_node("Level1").get_node("Player")
 
 
 # Makes sure enemy is facing the player

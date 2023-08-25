@@ -526,7 +526,6 @@ shape = SubResource("CapsuleShape2D_kee2e")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_admhu")
 animation = &"Sneak"
-frame = 1
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

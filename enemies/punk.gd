@@ -9,6 +9,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	super(delta)
 	if anim.animation != "Death":
 		velocity.y += gravity * delta
 	

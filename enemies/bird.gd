@@ -10,12 +10,13 @@ func _ready():
 	super()
 	speed = 30
 	direction = self.position.normalized()
-	face_player()
+	get_node("AnimatedSprite2D").flip_h = true
 	anim.play("Idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	super(delta)
 	if anim.animation != "Death":
 		if flying == false:
 			velocity.y += gravity * delta
