@@ -32,25 +32,6 @@ func start_game():
 	level.move_child(boss, 3)
 	boss.position = Vector2(2624,320)
 
-func _on_quit_pressed():
-	get_tree().quit()
-
-
-func _on_play_pressed():
-	get_tree().change_scene_to_file("res://levels/level_1.tscn")
-
-
-func _on_play_2_pressed():
-	get_tree().change_scene_to_file("res://levels/level_2.tscn")
-
-
-func _on_play_3_pressed():
-	get_tree().change_scene_to_file("res://levels/level_3.tscn")
-
-
-func _on_play_4_pressed():
-	get_tree().change_scene_to_file("res://levels/final_boss.tscn")
-
 
 func _on_ui_start_game():
 	start_game()
