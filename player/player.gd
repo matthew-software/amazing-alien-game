@@ -13,6 +13,7 @@ func _physics_process(delta):
 	super(delta)
 	
 	if alive == false:
+		print("ouch!")
 		Game.lives -= 1
 		queue_free()
 		get_tree().change_scene_to_file("res://main.tscn")

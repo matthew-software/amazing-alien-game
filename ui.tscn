@@ -57,4 +57,7 @@ theme_override_fonts/font = ExtResource("2_5j48s")
 unique_name_in_owner = true
 layout_mode = 1
 
+[connection signal="start_final_boss" from="Control/MainMenu" to="." method="_on_main_menu_start_final_boss"]
 [connection signal="start_game" from="Control/MainMenu" to="." method="_on_main_menu_start_game"]
+[connection signal="start_level_2" from="Control/MainMenu" to="." method="_on_main_menu_start_level_2"]
+[connection signal="start_level_3" from="Control/MainMenu" to="." method="_on_main_menu_start_level_3"]

@@ -19,7 +19,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	player = get_tree().root.get_node("Main").get_node("Level1").get_node("Player")
+	if get_tree().root.get_node("Main").get_node_or_null("Level1"):
+		player = get_tree().root.get_node("Main").get_node("Level1").get_node("Player")
+	elif get_tree().root.get_node("Main").get_node_or_null("Level2"):
+		player = get_tree().root.get_node("Main").get_node("Level2").get_node("Player")
+	elif get_tree().root.get_node("Main").get_node_or_null("Level3"):
+		player = get_tree().root.get_node("Main").get_node("Level3").get_node("Player")
+	elif get_tree().root.get_node("Main").get_node_or_null("FinalBoss"):
+		player = get_tree().root.get_node("Main").get_node("FinalBoss").get_node("Player")
 
 
 # Makes sure enemy is facing the player

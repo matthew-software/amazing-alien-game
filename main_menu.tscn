@@ -46,12 +46,12 @@ text = "Final Project"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="StartMenu" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/StartMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -61,7 +61,7 @@ focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Quit")
 text = "Start"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/StartMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -71,7 +71,57 @@ focus_next = NodePath("../Start")
 focus_previous = NodePath("../Start")
 text = "Quit	"
 
+[node name="LevelMenu" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Level 1" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Level 2")
+focus_neighbor_bottom = NodePath("../Level 2")
+focus_next = NodePath("../Level 2")
+focus_previous = NodePath("../Level 2")
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Level 1")
+focus_neighbor_bottom = NodePath("../Level 1")
+focus_next = NodePath("../Level 1")
+focus_previous = NodePath("../Level 1")
+text = "Level 2"
+
+[node name="Level 3" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Level 1")
+focus_neighbor_bottom = NodePath("../Level 1")
+focus_next = NodePath("../Level 1")
+focus_previous = NodePath("../Level 1")
+text = "Level 3"
+
+[node name="Final Boss" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Level 1")
+focus_neighbor_bottom = NodePath("../Level 1")
+focus_next = NodePath("../Level 1")
+focus_previous = NodePath("../Level 1")
+text = "Final Boss"
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="MarginContainer/VBoxContainer/ButtonsVBox" to="." method="_on_buttons_v_box_visibility_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/Quit" to="." method="_on_quit_pressed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer/StartMenu" to="." method="_on_buttons_v_box_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartMenu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartMenu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer/LevelMenu" to="." method="_on_buttons_v_box_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Final Boss" to="." method="_on_final_boss_pressed"]
