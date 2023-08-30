@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnepiuru04blr"]
+
+[ext_resource type="Script" path="res://scenery/RedClouds.gd" id="1_odws1"]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Parallax1" type="Sprite2D" parent="Sky"]
+position = Vector2(160, 90)
+
+[node name="BallInSky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Parallax2" type="Sprite2D" parent="BallInSky"]
+position = Vector2(160, 90)
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 0)
+script = ExtResource("1_odws1")
+
+[node name="Parallax3" type="Sprite2D" parent="Clouds"]
+position = Vector2(160, 90)
+
+[node name="City" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Parallax4" type="Sprite2D" parent="City"]
+position = Vector2(160, 90)
+
+[node name="Street" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Parallax5" type="Sprite2D" parent="Street"]
+position = Vector2(160, 90)
+
+[node name="Ground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Parallax6" type="Sprite2D" parent="Ground"]
+position = Vector2(160, 90)

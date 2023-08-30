@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://dw1erkj6jnjha"]
+[gd_scene load_steps=18 format=3 uid="uid://dw1erkj6jnjha"]
 
 [ext_resource type="Texture2D" uid="uid://cin7waf4gf2ac" path="res://art/tilesets/city_tileset.png" id="1_8oj8h"]
+[ext_resource type="Script" path="res://levels/level_1.gd" id="1_v6tel"]
 [ext_resource type="Texture2D" uid="uid://c7wnoiaoyd3fc" path="res://art/backgrounds/parallax_day_sky.png" id="2_o8nly"]
-[ext_resource type="Script" path="res://RedClouds.gd" id="3_p162t"]
+[ext_resource type="Script" path="res://scenery/RedClouds.gd" id="3_p162t"]
 [ext_resource type="Texture2D" uid="uid://ek3v8vrywcx7" path="res://art/backgrounds/parallax_day_clouds.png" id="4_w6jor"]
 [ext_resource type="Texture2D" uid="uid://cli44q2bwhiub" path="res://art/backgrounds/parallax_day_city.png" id="5_8igtr"]
 [ext_resource type="Texture2D" uid="uid://4yap5u4px6va" path="res://art/backgrounds/parallax_day_street.png" id="6_bvk1a"]
 [ext_resource type="Texture2D" uid="uid://dx6ftfpplxs2g" path="res://art/backgrounds/parallax_ground.png" id="6_efanc"]
-[ext_resource type="PackedScene" uid="uid://bvsdl5xfjqbdl" path="res://enemies/rat.tscn" id="8_omt7f"]
-[ext_resource type="PackedScene" uid="uid://mo5kulfopmto" path="res://enemies/crow.tscn" id="9_smemn"]
-[ext_resource type="PackedScene" uid="uid://vv2p1jm43kxv" path="res://enemies/pigeon.tscn" id="10_3s43q"]
-[ext_resource type="PackedScene" uid="uid://bnfmg73victlo" path="res://enemies/punk.tscn" id="11_ptwo8"]
-[ext_resource type="PackedScene" uid="uid://egjx68o03xc4" path="res://items/blue_space_crystal.tscn" id="12_0512n"]
+[ext_resource type="PackedScene" uid="uid://bvsdl5xfjqbdl" path="res://entities/enemies/rat.tscn" id="8_omt7f"]
+[ext_resource type="PackedScene" uid="uid://mo5kulfopmto" path="res://entities/enemies/crow.tscn" id="9_smemn"]
+[ext_resource type="PackedScene" uid="uid://vv2p1jm43kxv" path="res://entities/enemies/pigeon.tscn" id="10_3s43q"]
+[ext_resource type="PackedScene" uid="uid://bnfmg73victlo" path="res://entities/enemies/punk.tscn" id="11_ptwo8"]
+[ext_resource type="PackedScene" uid="uid://egjx68o03xc4" path="res://entities/items/blue_space_crystal.tscn" id="12_0512n"]
 [ext_resource type="Texture2D" uid="uid://cvul4rgmjij2m" path="res://art/backgrounds/parallax_foreground.png" id="14_1pu3v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xf1bw"]
@@ -494,7 +495,11 @@ terrain_set_0/terrain_0/name = "Ground"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_xf1bw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wigmr"]
+size = Vector2(3648, 274)
+
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_v6tel")
 metadata/_edit_horizontal_guides_ = []
 
 [node name="Background" type="ParallaxBackground" parent="."]
@@ -710,3 +715,11 @@ motion_mirroring = Vector2(640, 0)
 [node name="Parallax6" type="Sprite2D" parent="Foreground/PowerLines"]
 position = Vector2(320, 160)
 texture = ExtResource("14_1pu3v")
+
+[node name="Abyss" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Abyss"]
+position = Vector2(1312, 776)
+shape = SubResource("RectangleShape2D_wigmr")
+
+[connection signal="body_entered" from="Abyss" to="." method="_on_abyss_body_entered"]

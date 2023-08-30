@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c584t2v8u8p6"]
-
-[ext_resource type="Script" path="res://enemies/bird.gd" id="1_ltlrh"]
-
-[node name="Bird" type="CharacterBody2D"]
-script = ExtResource("1_ltlrh")

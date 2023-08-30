@@ -17,19 +17,21 @@ var current_level
 
 
 func _ready():
-	Utils.saveGame()
 	Utils.loadGame()
+	
+	player = PlayerScene.instantiate()
+	boss = BossScene.instantiate()
 
 
 func start_game():
 	# Start appropriate level; reduce number of crystals if level hasn't been beaten
 	if current_level == 1:
-		if Game.crystals < 2:
+		if Game.crystals < 30:
 			Game.crystals = 0
 		level = Level1Scene.instantiate()
 	elif current_level == 2:
 		if Game.crystals < 60:
-			Game.crystals = 2
+			Game.crystals = 30
 		level = Level2Scene.instantiate()
 	elif current_level == 3:
 		if Game.crystals < 90:
@@ -42,24 +44,29 @@ func start_game():
 	add_child(level)
 	move_child(level, 0)
 	
-	if !player:
-		player = PlayerScene.instantiate()
-	level.add_child(player)
-	level.move_child(player, 2)
-	player.position = Vector2(176,192)
-	
-	if !boss:
-		boss = BossScene.instantiate()
-	level.add_child(boss)
-	level.move_child(boss, 3)
-	boss.position = Vector2(2624,320)
+	if current_level == 4:
+		level.add_child(player)
+		level.move_child(player, 2)
+		player.position = Vector2(192,448)
+		#player.position = Vector2(2752,192)
+		
+		player.camera.zoom = Vector2(1,1)
+		
+	else:
+		level.add_child(player)
+		level.move_child(player, 2)
+		player.position = Vector2(176,192)
+
+		level.add_child(boss)
+		level.move_child(boss, 3)
+		boss.position = Vector2(2624,320)
 
 
 func _process(delta):
 	check_crystals()
 
 func check_crystals():
-	if current_level == 1 and Game.crystals == 2:
+	if current_level == 1 and Game.crystals == 30:
 		player.alive = false
 	elif current_level == 2 and Game.crystals == 60:
 		player.alive = false
