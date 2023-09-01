@@ -1,59 +1,59 @@
 [gd_scene load_steps=21 format=3 uid="uid://cfv81cv7x8q8m"]
 
-[ext_resource type="Script" path="res://entities/enemies/mole.gd" id="1_2qd3n"]
-[ext_resource type="Texture2D" uid="uid://do7lbpjp1ea10" path="res://art/spritesheets/enemies/enemy_death.png" id="2_dotl5"]
-[ext_resource type="Texture2D" uid="uid://drcfrjcg1jwr0" path="res://art/spritesheets/enemies/mole_run.png" id="3_1rlw3"]
-[ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="4_limll"]
+[ext_resource type="Script" path="res://entities/enemies/mole.gd" id="1_3c2jh"]
+[ext_resource type="Texture2D" uid="uid://do7lbpjp1ea10" path="res://art/spritesheets/enemies/enemy_death.png" id="2_xii7b"]
+[ext_resource type="Texture2D" uid="uid://drcfrjcg1jwr0" path="res://art/spritesheets/enemies/mole_run.png" id="3_upkju"]
+[ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="4_dlakw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok01y"]
 size = Vector2(16, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1r0o"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqksg"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75ufc"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_34mvc"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hwwdj"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ii4vc"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuaye"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb081"]
-atlas = ExtResource("2_dotl5")
+atlas = ExtResource("2_xii7b")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4rvh"]
-atlas = ExtResource("3_1rlw3")
+atlas = ExtResource("3_upkju")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqimm"]
-atlas = ExtResource("3_1rlw3")
+atlas = ExtResource("3_upkju")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtyot"]
-atlas = ExtResource("3_1rlw3")
+atlas = ExtResource("3_upkju")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4i7o7"]
-atlas = ExtResource("3_1rlw3")
+atlas = ExtResource("3_upkju")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ink5a"]
@@ -112,7 +112,7 @@ size = Vector2(21, 8.5)
 size = Vector2(23, 9.5)
 
 [node name="Mole" type="CharacterBody2D"]
-script = ExtResource("1_2qd3n")
+script = ExtResource("1_3c2jh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -6)
@@ -135,7 +135,7 @@ shape = SubResource("RectangleShape2D_g606w")
 position = Vector2(1.5, -5.25)
 shape = SubResource("RectangleShape2D_3gw23")
 
-[node name="DeathSound" parent="." instance=ExtResource("4_limll")]
+[node name="DeathSound" parent="." instance=ExtResource("4_dlakw")]
 
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
 [connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dn8sujw4tlrla" path="res://entities/enemies/bat.tscn" id="14_d8g28"]
 [ext_resource type="PackedScene" uid="uid://tifntdyspoxk" path="res://entities/enemies/red_fireball.tscn" id="15_sf2n0"]
 [ext_resource type="PackedScene" uid="uid://c8hndqfm32rh" path="res://entities/enemies/blue_fireball.tscn" id="16_8geea"]
-[ext_resource type="PackedScene" uid="uid://cfv81cv7x8q8m" path="res://entities/enemies/mole.tscn" id="16_ydpf0"]
+[ext_resource type="PackedScene" uid="uid://iwbpjvynh3ww" path="res://entities/attacks/crystal_beam.tscn" id="17_xkrxt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aidg"]
 texture = ExtResource("1_a2qmm")
@@ -613,9 +613,6 @@ position = Vector2(472, 664)
 [node name="BlueFireball" parent="Enemies" instance=ExtResource("16_8geea")]
 position = Vector2(752, 448)
 
-[node name="Mole" parent="Enemies" instance=ExtResource("16_ydpf0")]
-position = Vector2(384, 640)
-
 [node name="Items" type="Node2D" parent="."]
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
@@ -635,4 +632,12 @@ texture = ExtResource("12_4veie")
 position = Vector2(1505.5, 705.5)
 shape = SubResource("RectangleShape2D_rqs72")
 
+[node name="CrystalBeam" parent="." instance=ExtResource("17_xkrxt")]
+position = Vector2(2720, 320)
+
+[node name="CrystalBeam2" parent="." instance=ExtResource("17_xkrxt")]
+position = Vector2(2944, 320)
+
+[connection signal="attacking_finished" from="Enemies/SuperBoss" to="." method="_on_super_boss_attacking_finished"]
+[connection signal="attacking_started" from="Enemies/SuperBoss" to="." method="_on_super_boss_attacking_started"]
 [connection signal="body_entered" from="Inferno" to="." method="_on_inferno_body_entered"]

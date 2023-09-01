@@ -1,6 +1,7 @@
-[gd_scene load_steps=60 format=3 uid="uid://cva0pqj5ybdix"]
+[gd_scene load_steps=63 format=3 uid="uid://cva0pqj5ybdix"]
 
 [ext_resource type="Script" path="res://entities/boss/boss.gd" id="1_xtuak"]
+[ext_resource type="Texture2D" uid="uid://cgrglfa4al3it" path="res://art/spritesheets/boss/boss_death.png" id="2_qjh70"]
 [ext_resource type="Texture2D" uid="uid://lrqt0l78gx6y" path="res://art/spritesheets/boss/boss_fall.png" id="2_wbutu"]
 [ext_resource type="Texture2D" uid="uid://cr6bapp76tonq" path="res://art/spritesheets/boss/boss_idle.png" id="3_s31r0"]
 [ext_resource type="Texture2D" uid="uid://defcomyl80ics" path="res://art/spritesheets/boss/boss_jump.png" id="4_560fq"]
@@ -12,6 +13,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kee2e"]
 radius = 5.0
 height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alb51"]
+atlas = ExtResource("2_qjh70")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4essc"]
 atlas = ExtResource("2_wbutu")
@@ -185,6 +190,14 @@ region = Rect2(224, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_alb51")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4essc")
 }, {
 "duration": 1.0,
@@ -195,7 +208,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Fall",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -260,7 +273,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -274,7 +287,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jump",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -303,7 +316,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -332,7 +345,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Sneak",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="Animation" id="Animation_hwkpl"]
@@ -505,8 +518,37 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_lcwwy"]
+resource_name = "Death"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x0g55"]
 _data = {
+"Death": SubResource("Animation_lcwwy"),
 "Fall": SubResource("Animation_hwkpl"),
 "Idle": SubResource("Animation_tqdb0"),
 "Jump": SubResource("Animation_6pgte"),
@@ -526,7 +568,6 @@ shape = SubResource("CapsuleShape2D_kee2e")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_admhu")
 animation = &"Sneak"
-frame = 1
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

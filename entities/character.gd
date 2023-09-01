@@ -40,7 +40,7 @@ var move_slow = false
 
 func _physics_process(delta):
 	if pause == true:
-		anim.stop(false)
+		anim.play("Death")
 	else:
 		# Add the gravity.
 		if not is_on_floor():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://c0km3qim22h5h"]
+[gd_scene load_steps=96 format=3 uid="uid://c0km3qim22h5h"]
 
 [ext_resource type="Script" path="res://entities/player/super_player.gd" id="1_k05as"]
 [ext_resource type="Texture2D" uid="uid://xeuv6t082amy" path="res://art/spritesheets/player/super_player_fly.png" id="2_qs3nv"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://crdci21sk43pg" path="res://audio/effects/jump.wav" id="9_acs3f"]
 [ext_resource type="AudioStream" uid="uid://hlh66smpo268" path="res://audio/effects/jump_second.wav" id="10_0khhb"]
 [ext_resource type="AudioStream" uid="uid://ccrbn31mhlgt5" path="res://audio/effects/jump_super.wav" id="11_dsofn"]
+[ext_resource type="AudioStream" uid="uid://d0jj4srd03ya" path="res://audio/effects/hurt.wav" id="12_sgbdh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kee2e"]
 radius = 5.0
@@ -830,6 +831,9 @@ stream = ExtResource("10_0khhb")
 
 [node name="JumpSuperSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_dsofn")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_sgbdh")
 
 [node name="DeathTimer" type="Timer" parent="."]
 

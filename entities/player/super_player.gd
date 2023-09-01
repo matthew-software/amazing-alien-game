@@ -11,11 +11,6 @@ func _physics_process(delta):
 	move_vertical = Input.get_axis("ui_up", "ui_down")
 	move_slow = Input.is_action_pressed("slow")
 	super(delta)
-	
-	if alive == false:
-		Game.lives -= 1
-		queue_free()
-		get_tree().change_scene_to_file("res://main.tscn")
 
 
 # Overridden to fly

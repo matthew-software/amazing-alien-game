@@ -2,6 +2,7 @@ extends Node2D
 class_name Main
 
 @export var PlayerScene: PackedScene
+@export var SuperPlayerScene: PackedScene
 @export var BossScene: PackedScene
 @export var Level1Scene: PackedScene
 @export var Level2Scene: PackedScene
@@ -45,13 +46,13 @@ func start_game():
 	move_child(level, 0)
 	
 	if current_level == 4:
+		#player = SuperPlayerScene.instantiate()
 		level.add_child(player)
 		level.move_child(player, 2)
 		player.position = Vector2(192,448)
 		#player.position = Vector2(2752,192)
 		
 		player.camera.zoom = Vector2(1,1)
-		
 	else:
 		level.add_child(player)
 		level.move_child(player, 2)

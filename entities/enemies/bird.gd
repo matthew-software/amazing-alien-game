@@ -72,7 +72,7 @@ func sneak():
 	pass
 
 
-# On death, player "super jumps" (overridden from "Enemy" parent class's "extra jumping")
+# On death, player "super jumps" (overridden from "Enemy" parent class's "extra jump")
 func _on_death_body_entered(body):
 	if body.name == "Player":
 		if anim.animation != "Death":

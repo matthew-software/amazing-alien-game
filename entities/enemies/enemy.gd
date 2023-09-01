@@ -34,18 +34,18 @@ func _physics_process(delta):
 func face_player():
 	direction = (player.position - self.position).normalized()
 	if direction.x > 0:
-		get_node("AnimatedSprite2D").flip_h = false
+		anim.flip_h = false
 	else:
-		get_node("AnimatedSprite2D").flip_h = true
+		anim.flip_h = true
 
 
 # Returns true if currently facing the player, false otherwise
 func is_facing_player():
 	direction = (player.position - self.position).normalized()
 	if direction.x > 0:
-		if get_node("AnimatedSprite2D").flip_h == false:
+		if anim.flip_h == false:
 			return true
-	elif get_node("AnimatedSprite2D").flip_h == true:
+	elif anim.flip_h == true:
 		return true
 	
 	return false
@@ -74,7 +74,7 @@ func _on_death_body_entered(body):
 			body.extra_jump = true
 
 
-# If jumped on by player, die
+# If collided into by player, player dies
 func _on_player_collision_body_entered(body):
 	if body.name == "Player":
 		if anim.animation != "Death":

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="5_q3iwf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqtyt"]
-radius = 27.0
+radius = 25.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jg35"]
 atlas = ExtResource("2_ilc8m")
@@ -706,25 +706,29 @@ size = Vector2(512, 64)
 size = Vector2(13, 9.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1jx7"]
-radius = 33.0
+radius = 26.0
 
 [node name="SuperBoss" type="CharacterBody2D"]
 position = Vector2(0, -16)
 script = ExtResource("1_fn6vo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
+visible = false
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_xqtyt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_x58jq")
-animation = &"Special"
+animation = &"Attack"
+frame = 7
+frame_progress = 0.943397
 metadata/_edit_lock_ = true
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+visible = false
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_rcn7c")
 
@@ -738,11 +742,14 @@ shape = SubResource("RectangleShape2D_a46y5")
 [node name="PlayerCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
-visible = false
-position = Vector2(-3, -11)
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_t1jx7")
 
 [node name="DeathSound" parent="." instance=ExtResource("5_q3iwf")]
+
+[node name="CrystalBeamTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="SpecialAttackTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -752,4 +759,5 @@ autostart = true
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
 [connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]
+[connection signal="timeout" from="CrystalBeamTimer" to="." method="_on_crystal_beam_timer_timeout"]
 [connection signal="timeout" from="SpecialAttackTimer" to="." method="_on_special_attack_timer_timeout"]

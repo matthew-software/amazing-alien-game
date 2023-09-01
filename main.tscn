@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b48e56j6tb5pg"]
+[gd_scene load_steps=10 format=3 uid="uid://b48e56j6tb5pg"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pjt6b"]
 [ext_resource type="PackedScene" uid="uid://3cawy8knycih" path="res://entities/player/player.tscn" id="2_ndwg1"]
 [ext_resource type="PackedScene" uid="uid://os7pu0ati6qk" path="res://ui/menus/ui.tscn" id="2_orpve"]
+[ext_resource type="PackedScene" uid="uid://c0km3qim22h5h" path="res://entities/player/super_player.tscn" id="3_6et3x"]
 [ext_resource type="PackedScene" uid="uid://dw1erkj6jnjha" path="res://levels/level_1.tscn" id="3_catmw"]
 [ext_resource type="PackedScene" uid="uid://cva0pqj5ybdix" path="res://entities/boss/boss.tscn" id="3_t14my"]
 [ext_resource type="PackedScene" uid="uid://be825y7d1tugc" path="res://levels/level_2.tscn" id="5_odyok"]
@@ -12,6 +13,7 @@
 [node name="Main" type="Node2D" node_paths=PackedStringArray("ui")]
 script = ExtResource("1_pjt6b")
 PlayerScene = ExtResource("2_ndwg1")
+SuperPlayerScene = ExtResource("3_6et3x")
 BossScene = ExtResource("3_t14my")
 Level1Scene = ExtResource("3_catmw")
 Level2Scene = ExtResource("5_odyok")

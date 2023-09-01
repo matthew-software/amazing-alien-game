@@ -19,6 +19,14 @@ func _physics_process(delta):
 		move_and_slide()
 
 
+# On death, player "super jumps" (overridden from "Enemy" parent class's "extra jump")
+func _on_death_body_entered(body):
+	if body.name == "Player":
+		if anim.animation != "Death":
+			death()
+			body.super_jump = true
+
+
 # When facing player, or not facing player but player not slow, face player and attack
 func _on_player_detection_body_entered(body):
 	if body.name == "Player":
