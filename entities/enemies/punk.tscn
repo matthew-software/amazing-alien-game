@@ -349,6 +349,8 @@ shape = SubResource("CircleShape2D_t1jx7")
 
 [node name="DeathSound" parent="." instance=ExtResource("5_qoh1n")]
 
+[node name="CrySound" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bvsdl5xfjqbdl"]
+[gd_scene load_steps=22 format=3 uid="uid://bvsdl5xfjqbdl"]
 
 [ext_resource type="Script" path="res://entities/enemies/rat.gd" id="1_i3qu1"]
 [ext_resource type="Texture2D" uid="uid://bdi8aesm24gkn" path="res://art/spritesheets/enemies/rat_run.png" id="1_up601"]
 [ext_resource type="Texture2D" uid="uid://do7lbpjp1ea10" path="res://art/spritesheets/enemies/enemy_death.png" id="2_lqri2"]
 [ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="4_ucpbp"]
+[ext_resource type="AudioStream" uid="uid://1djp3vl41k8j" path="res://audio/effects/rat_cry.wav" id="5_n03y1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok01y"]
 size = Vector2(16, 12)
@@ -122,6 +123,7 @@ shape = SubResource("RectangleShape2D_ok01y")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ink5a")
 animation = &"Run"
+frame_progress = 0.640876
 
 [node name="Death" type="Area2D" parent="."]
 
@@ -136,6 +138,9 @@ position = Vector2(1.5, -5.25)
 shape = SubResource("RectangleShape2D_3gw23")
 
 [node name="DeathSound" parent="." instance=ExtResource("4_ucpbp")]
+
+[node name="CrySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n03y1")
 
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
 [connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]

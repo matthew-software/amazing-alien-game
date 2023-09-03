@@ -9,6 +9,7 @@ var super_player
 @onready var anim = get_node("AnimatedSprite2D")
 @onready var collision_shape = $CollisionShape2D
 @onready var death_sound = $DeathSound
+@onready var cry_sound = $CrySound
 
 var direction = self.position.normalized()
 
@@ -27,7 +28,7 @@ func _physics_process(delta):
 	elif get_tree().root.get_node("Main").get_node_or_null("Level3"):
 		player = get_tree().root.get_node("Main").get_node("Level3").get_node("Player")
 	elif get_tree().root.get_node("Main").get_node_or_null("FinalBoss"):
-		player = get_tree().root.get_node("Main").get_node("FinalBoss").get_node("Player")
+		player = get_tree().root.get_node("Main").get_node("FinalBoss").get_node("SuperPlayer")
 
 
 # Makes sure enemy is facing the player
@@ -51,6 +52,30 @@ func is_facing_player():
 	return false
 
 
+func run_left():
+	anim.play("Run")
+	get_node("AnimatedSprite2D").flip_h = true
+	direction = -1
+
+
+func run_right():
+	anim.play("Run")
+	get_node("AnimatedSprite2D").flip_h = false
+	direction = 1
+
+
+# Flips direction if Enemy hits wall
+func wall_to_wall():
+	if anim.animation != "Death":
+		if is_on_wall():
+			if get_node("AnimatedSprite2D").flip_h == false:
+				get_node("AnimatedSprite2D").flip_h = true
+				direction = -1
+			else:
+				get_node("AnimatedSprite2D").flip_h = false
+				direction = 1
+
+
 func chase():
 	face_player()
 	velocity.x = direction.x * speed
@@ -62,6 +87,7 @@ func death():
 		collision_shape.set_deferred("disabled", true)
 	anim.play("Death")
 	death_sound.play()
+	cry_sound.play()
 	await anim.animation_finished
 	self.queue_free()
 

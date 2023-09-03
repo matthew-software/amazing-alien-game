@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://mo5kulfopmto"]
+[gd_scene load_steps=71 format=3 uid="uid://mo5kulfopmto"]
 
 [ext_resource type="Texture2D" uid="uid://dmh5bc1kxea7n" path="res://art/spritesheets/enemies/crow_idle.png" id="1_1elcs"]
 [ext_resource type="Script" path="res://entities/enemies/crow.gd" id="1_7loj4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c53wk6g0iigw8" path="res://art/spritesheets/enemies/crow_run.png" id="2_03hrt"]
 [ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="2_5q7cv"]
 [ext_resource type="Texture2D" uid="uid://do7lbpjp1ea10" path="res://art/spritesheets/enemies/enemy_death.png" id="2_74bn1"]
+[ext_resource type="AudioStream" uid="uid://b75gm005w6qbv" path="res://audio/effects/crow_cry.wav" id="7_dibtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leojx"]
 size = Vector2(16, 13)
@@ -479,6 +480,9 @@ shape = SubResource("RectangleShape2D_a46y5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 position = Vector2(1.5, -5.25)
 shape = SubResource("RectangleShape2D_cdp53")
+
+[node name="CrySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_dibtl")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

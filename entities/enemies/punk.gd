@@ -19,8 +19,8 @@ func _physics_process(delta):
 # When facing player, or not facing player but player not slow, face player and attack
 func _on_player_detection_body_entered(body):
 	if body.name == "Player":
-		if anim.animation != "Death":
-			if (body.slow == false) or ((body.slow == true) and (is_facing_player() == true)):
+		if (body.slow == false) or ((body.slow == true) and (is_facing_player() == true)):
+			if anim.animation != "Death":
 				face_player()
 				anim.play("Attack")
 				$PlayerCollision/CollisionShape2D.set_deferred("disabled", false)

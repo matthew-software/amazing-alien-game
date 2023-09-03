@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dn8sujw4tlrla"]
+[gd_scene load_steps=65 format=3 uid="uid://dn8sujw4tlrla"]
 
 [ext_resource type="Script" path="res://entities/enemies/bat.gd" id="1_h7rob"]
 [ext_resource type="Texture2D" uid="uid://brxeaxkusiswl" path="res://art/spritesheets/enemies/bat_fly.png" id="2_qrey8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5wj13grobdqm" path="res://art/spritesheets/enemies/bat_idle.png" id="3_x8olj"]
 [ext_resource type="Texture2D" uid="uid://5xuf0kpnp6g2" path="res://art/spritesheets/enemies/bat_stare.png" id="4_3wk8g"]
 [ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="5_kbjud"]
+[ext_resource type="AudioStream" uid="uid://cwn14m66sphn" path="res://audio/effects/bat_cry.wav" id="7_6ujrv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2mtw"]
 radius = 7.0
@@ -441,6 +442,9 @@ position = Vector2(-4, -9)
 shape = SubResource("CircleShape2D_t1jx7")
 
 [node name="DeathSound" parent="." instance=ExtResource("5_kbjud")]
+
+[node name="CrySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6ujrv")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

@@ -46,7 +46,7 @@ func start_game():
 	move_child(level, 0)
 	
 	if current_level == 4:
-		#player = SuperPlayerScene.instantiate()
+		player = SuperPlayerScene.instantiate()
 		level.add_child(player)
 		level.move_child(player, 2)
 		player.position = Vector2(192,448)

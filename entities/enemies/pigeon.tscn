@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://vv2p1jm43kxv"]
+[gd_scene load_steps=71 format=3 uid="uid://vv2p1jm43kxv"]
 
 [ext_resource type="Script" path="res://entities/enemies/pigeon.gd" id="1_q3hcs"]
 [ext_resource type="Texture2D" uid="uid://dnstcj2ssl171" path="res://art/spritesheets/enemies/pigeon_fly.png" id="1_qxao2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://do7lbpjp1ea10" path="res://art/spritesheets/enemies/enemy_death.png" id="2_imbr3"]
 [ext_resource type="Texture2D" uid="uid://cby2fptdjvqde" path="res://art/spritesheets/enemies/pigeon_run.png" id="3_myvgj"]
 [ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="6_g7u5j"]
+[ext_resource type="AudioStream" uid="uid://dmvifhxy5m4aa" path="res://audio/effects/pigeon_cry.wav" id="7_rk343"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfknl"]
 size = Vector2(16, 13)
@@ -479,6 +480,9 @@ position = Vector2(1.5, -5.25)
 shape = SubResource("RectangleShape2D_cf0uo")
 
 [node name="DeathSound" parent="." instance=ExtResource("6_g7u5j")]
+
+[node name="CrySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_rk343")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

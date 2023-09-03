@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://tifntdyspoxk"]
+[gd_scene load_steps=20 format=3 uid="uid://tifntdyspoxk"]
 
 [ext_resource type="Script" path="res://entities/enemies/red_fireball.gd" id="1_27cwh"]
 [ext_resource type="Texture2D" uid="uid://do7lbpjp1ea10" path="res://art/spritesheets/enemies/enemy_death.png" id="2_yq4b8"]
 [ext_resource type="Texture2D" uid="uid://nle4kwou1prk" path="res://art/spritesheets/enemies/red_fireball_up.png" id="3_ei700"]
 [ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="4_1wyv3"]
+[ext_resource type="AudioStream" uid="uid://e3c6y4u2233p" path="res://audio/effects/fireball_red_cry.wav" id="5_jhl1w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1r0o"]
 atlas = ExtResource("2_yq4b8")
@@ -120,5 +121,8 @@ position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_hnbj5")
 
 [node name="DeathSound" parent="." instance=ExtResource("4_1wyv3")]
+
+[node name="CrySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jhl1w")
 
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
