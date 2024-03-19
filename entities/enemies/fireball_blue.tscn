@@ -1,136 +1,136 @@
 [gd_scene load_steps=35 format=3 uid="uid://c8hndqfm32rh"]
 
-[ext_resource type="Script" path="res://entities/enemies/blue_fireball.gd" id="1_lt31c"]
-[ext_resource type="Texture2D" uid="uid://do7lbpjp1ea10" path="res://art/spritesheets/enemies/enemy_death.png" id="2_oq2x2"]
-[ext_resource type="Texture2D" uid="uid://ynnbtincx6r" path="res://art/spritesheets/enemies/blue_fireball_down.png" id="3_r0rbp"]
-[ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="4_imoe6"]
-[ext_resource type="Texture2D" uid="uid://8j8mbpurl688" path="res://art/spritesheets/enemies/blue_fireball_left.png" id="4_j60kc"]
-[ext_resource type="Texture2D" uid="uid://bfwwwg1flqy7b" path="res://art/spritesheets/enemies/blue_fireball_right.png" id="5_tosty"]
-[ext_resource type="Texture2D" uid="uid://dlnlf3onqpw7t" path="res://art/spritesheets/enemies/blue_fireball_up.png" id="6_4k18e"]
-[ext_resource type="AudioStream" uid="uid://q4ve713gue14" path="res://audio/effects/fireball_blue_cry.wav" id="8_srrb5"]
+[ext_resource type="Script" path="res://entities/enemies/fireball_blue.gd" id="1_w00es"]
+[ext_resource type="Texture2D" uid="uid://ynnbtincx6r" path="res://art/spritesheets/enemies/blue_fireball_down.png" id="3_81hjs"]
+[ext_resource type="Texture2D" uid="uid://8j8mbpurl688" path="res://art/spritesheets/enemies/blue_fireball_left.png" id="4_0qpmi"]
+[ext_resource type="Texture2D" uid="uid://bl64d332f266h" path="res://art/spritesheets/enemies/extinguish.png" id="4_q7xxi"]
+[ext_resource type="Texture2D" uid="uid://bfwwwg1flqy7b" path="res://art/spritesheets/enemies/blue_fireball_right.png" id="5_t5xwe"]
+[ext_resource type="Texture2D" uid="uid://dlnlf3onqpw7t" path="res://art/spritesheets/enemies/blue_fireball_up.png" id="6_x0pbd"]
+[ext_resource type="AudioStream" uid="uid://4chl3wjxtcjn" path="res://audio/effects/incinerate.wav" id="7_e82hi"]
+[ext_resource type="AudioStream" uid="uid://q4ve713gue14" path="res://audio/effects/fireball_blue_cry.wav" id="8_5q4o1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1r0o"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1yg0"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rqksg"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2s0l"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_75ufc"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtgh5"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_34mvc"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71ec"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hwwdj"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia3je"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ii4vc"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlj0u"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuaye"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj4gr"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gb081"]
-atlas = ExtResource("2_oq2x2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tcgn"]
+atlas = ExtResource("4_q7xxi")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5ou1"]
-atlas = ExtResource("3_r0rbp")
+atlas = ExtResource("3_81hjs")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yclbv"]
-atlas = ExtResource("3_r0rbp")
+atlas = ExtResource("3_81hjs")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yosdp"]
-atlas = ExtResource("3_r0rbp")
+atlas = ExtResource("3_81hjs")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5st86"]
-atlas = ExtResource("3_r0rbp")
+atlas = ExtResource("3_81hjs")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4a6i"]
-atlas = ExtResource("4_j60kc")
+atlas = ExtResource("4_0qpmi")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2davb"]
-atlas = ExtResource("4_j60kc")
+atlas = ExtResource("4_0qpmi")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y74we"]
-atlas = ExtResource("4_j60kc")
+atlas = ExtResource("4_0qpmi")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_up877"]
-atlas = ExtResource("4_j60kc")
+atlas = ExtResource("4_0qpmi")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5nvh"]
-atlas = ExtResource("5_tosty")
+atlas = ExtResource("5_t5xwe")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vwg2"]
-atlas = ExtResource("5_tosty")
+atlas = ExtResource("5_t5xwe")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwg2o"]
-atlas = ExtResource("5_tosty")
+atlas = ExtResource("5_t5xwe")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pd2b"]
-atlas = ExtResource("5_tosty")
+atlas = ExtResource("5_t5xwe")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qyk5n"]
-atlas = ExtResource("6_4k18e")
+atlas = ExtResource("6_x0pbd")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v56c6"]
-atlas = ExtResource("6_4k18e")
+atlas = ExtResource("6_x0pbd")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i48c5"]
-atlas = ExtResource("6_4k18e")
+atlas = ExtResource("6_x0pbd")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8q4dl"]
-atlas = ExtResource("6_4k18e")
+atlas = ExtResource("6_x0pbd")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ink5a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s1r0o")
+"texture": SubResource("AtlasTexture_s1yg0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rqksg")
+"texture": SubResource("AtlasTexture_r2s0l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_75ufc")
+"texture": SubResource("AtlasTexture_xtgh5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_34mvc")
+"texture": SubResource("AtlasTexture_l71ec")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hwwdj")
+"texture": SubResource("AtlasTexture_ia3je")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ii4vc")
+"texture": SubResource("AtlasTexture_rlj0u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xuaye")
+"texture": SubResource("AtlasTexture_cj4gr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gb081")
+"texture": SubResource("AtlasTexture_8tcgn")
 }],
 "loop": false,
 "name": &"Death",
@@ -208,8 +208,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vr3nu"]
 radius = 9.05539
 
-[node name="BlueFireball" type="CharacterBody2D"]
-script = ExtResource("1_lt31c")
+[node name="FireballBlue" type="CharacterBody2D"]
+script = ExtResource("1_w00es")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
@@ -222,9 +222,10 @@ animation = &"Up"
 position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_vr3nu")
 
-[node name="DeathSound" parent="." instance=ExtResource("4_imoe6")]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_e82hi")
 
 [node name="CrySound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_srrb5")
+stream = ExtResource("8_5q4o1")
 
 [connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]

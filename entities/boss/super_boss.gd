@@ -3,6 +3,8 @@ extends Enemy
 
 signal attacking_started(left)
 signal attacking_finished()
+@onready var crystal_beam_sound = $CrystalBeamSound
+@onready var tremor_sound = $TremorSound
 @onready var crystal_beam_timer = $CrystalBeamTimer
 
 
@@ -34,6 +36,7 @@ func _on_player_detection_body_entered(body):
 		if (body.slow == false) or ((body.slow == true) and (is_facing_player() == true)):
 			face_player()
 			anim.play("Attack")
+			crystal_beam_sound.play()
 			$PlayerCollision/CollisionShape2D.set_deferred("disabled", false)
 			if anim.flip_h == true:
 				attacking_started.emit(true)
@@ -63,6 +66,7 @@ func special_attack():
 	# Animate this to increase/decrease/fade the shaking
 	tremor = true
 	anim.play("Special")
+	tremor_sound.play()
 	await anim.animation_finished
 	tremor = false
 	anim.play("Idle")

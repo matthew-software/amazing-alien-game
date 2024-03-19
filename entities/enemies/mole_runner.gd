@@ -3,6 +3,8 @@ extends Mole
 
 @export var run: bool = false
 
+@onready var shatter_sound = $ShatterSound
+
 func _ready():
 	if run == true:
 		speed = 60
@@ -32,6 +34,7 @@ func _on_player_detection_body_entered(body):
 			if run == false:
 				anim.play("Vacate")
 				position.y -= 16
+				shatter_sound.play()
 				await anim.animation_finished
 				run_right()
 				run = true

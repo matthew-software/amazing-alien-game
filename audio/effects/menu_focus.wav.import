@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://4chl3wjxtcjn"
-path="res://.godot/imported/incinerate.wav-38d045a3a3ab856933ea329b2aab1f8d.sample"
+uid="uid://datd2rfvn7cm1"
+path="res://.godot/imported/menu_focus.wav-bbfbfa0fa96e872a425a1855a04f91e9.sample"
 
 [deps]
 
-source_file="res://audio/effects/incinerate.wav"
-dest_files=["res://.godot/imported/incinerate.wav-38d045a3a3ab856933ea329b2aab1f8d.sample"]
+source_file="res://audio/effects/menu_focus.wav"
+dest_files=["res://.godot/imported/menu_focus.wav-bbfbfa0fa96e872a425a1855a04f91e9.sample"]
 
 [params]
 

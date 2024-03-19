@@ -5,6 +5,8 @@ extends Level
 
 @onready var crystal_beam = $CrystalBeam
 @onready var crystal_beam_2 = $CrystalBeam2
+@onready var death_sound = $DeathSound
+
 
 var crystal_beam_anim
 var crystal_beam_2_anim
@@ -20,6 +22,7 @@ func _ready():
 
 func _on_inferno_body_entered(body):
 	if body is Character:
+		death_sound.play()
 		body.pause = true
 		body.hurt_sound.play()
 		body.death_timer.start()

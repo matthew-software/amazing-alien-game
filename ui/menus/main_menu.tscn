@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d08se015voeqa"]
+[gd_scene load_steps=11 format=3 uid="uid://d08se015voeqa"]
 
 [ext_resource type="FontFile" uid="uid://tshmrijek1ci" path="res://ui/retro_gaming.ttf" id="1_ikp8a"]
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="2_0qdp1"]
+[ext_resource type="AudioStream" uid="uid://datd2rfvn7cm1" path="res://audio/effects/menu_focus.wav" id="3_rh5h5"]
+[ext_resource type="AudioStream" uid="uid://bbatgjcval105" path="res://audio/effects/menu_press.wav" id="4_a8lhb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4au5l"]
 
@@ -98,52 +100,58 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="Level 1" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+[node name="Level1" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Final Boss")
-focus_neighbor_bottom = NodePath("../Level 2")
-focus_next = NodePath("../Level 2")
-focus_previous = NodePath("../Final Boss")
+focus_neighbor_top = NodePath("../FinalBoss")
+focus_neighbor_bottom = NodePath("../Level2")
+focus_next = NodePath("../Level2")
+focus_previous = NodePath("../FinalBoss")
 text = "Level 1"
 
-[node name="Level 2" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+[node name="Level2" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Level 1")
-focus_neighbor_bottom = NodePath("../Level 3")
-focus_next = NodePath("../Level 3")
-focus_previous = NodePath("../Level 1")
+focus_neighbor_top = NodePath("../Level1")
+focus_neighbor_bottom = NodePath("../Level3")
+focus_next = NodePath("../Level3")
+focus_previous = NodePath("../Level1")
 text = "Level 2"
 
-[node name="Level 3" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+[node name="Level3" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Level 2")
-focus_neighbor_bottom = NodePath("../Final Boss")
-focus_next = NodePath("../Final Boss")
-focus_previous = NodePath("../Level 2")
+focus_neighbor_top = NodePath("../Level2")
+focus_neighbor_bottom = NodePath("../FinalBoss")
+focus_next = NodePath("../FinalBoss")
+focus_previous = NodePath("../Level2")
 text = "Level 3"
 
-[node name="Final Boss" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
+[node name="FinalBoss" type="Button" parent="MarginContainer/VBoxContainer/LevelMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Level 3")
-focus_neighbor_bottom = NodePath("../Level 1")
-focus_next = NodePath("../Level 1")
-focus_previous = NodePath("../Level 3")
+focus_neighbor_top = NodePath("../Level3")
+focus_neighbor_bottom = NodePath("../Level1")
+focus_next = NodePath("../Level1")
+focus_previous = NodePath("../Level3")
 text = "Final Boss"
+
+[node name="MenuFocusSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rh5h5")
+
+[node name="MenuPressSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a8lhb")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="MarginContainer/VBoxContainer/StartMenu" to="." method="_on_buttons_v_box_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartMenu/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartMenu/Quit" to="." method="_on_quit_pressed"]
 [connection signal="visibility_changed" from="MarginContainer/VBoxContainer/LevelMenu" to="." method="_on_buttons_v_box_visibility_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level 1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level 2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level 3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Final Boss" to="." method="_on_final_boss_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelMenu/FinalBoss" to="." method="_on_final_boss_pressed"]

@@ -28,7 +28,7 @@ func _physics_process(delta):
 	elif get_tree().root.get_node("Main").get_node_or_null("Level3"):
 		player = get_tree().root.get_node("Main").get_node("Level3").get_node("Player")
 	elif get_tree().root.get_node("Main").get_node_or_null("FinalBoss"):
-		player = get_tree().root.get_node("Main").get_node("FinalBoss").get_node("SuperPlayer")
+		player = get_tree().root.get_node("Main").get_node("FinalBoss").get_node("Player")
 
 
 # Makes sure enemy is facing the player

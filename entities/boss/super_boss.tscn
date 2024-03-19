@@ -1,10 +1,12 @@
-[gd_scene load_steps=107 format=3 uid="uid://yex5sd6v1s3m"]
+[gd_scene load_steps=109 format=3 uid="uid://yex5sd6v1s3m"]
 
 [ext_resource type="Script" path="res://entities/boss/super_boss.gd" id="1_fn6vo"]
 [ext_resource type="Texture2D" uid="uid://6t48o6y1gwfn" path="res://art/spritesheets/boss/super_boss_attack.png" id="2_ilc8m"]
 [ext_resource type="Texture2D" uid="uid://3okqjj6fpsl2" path="res://art/spritesheets/boss/super_boss_idle.png" id="3_1hcst"]
 [ext_resource type="Texture2D" uid="uid://dsks26pyyl531" path="res://art/spritesheets/boss/super_boss_special.png" id="4_hjblo"]
 [ext_resource type="PackedScene" uid="uid://dsc4vj8608r1r" path="res://audio/death_sound.tscn" id="5_q3iwf"]
+[ext_resource type="AudioStream" uid="uid://cevopx1y7qqf6" path="res://audio/effects/crystal_beam.wav" id="6_y6hlr"]
+[ext_resource type="AudioStream" uid="uid://cbjxwi0cs7mv6" path="res://audio/effects/tremor.wav" id="7_v2sak"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqtyt"]
 radius = 25.0
@@ -720,9 +722,9 @@ shape = SubResource("CircleShape2D_xqtyt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_x58jq")
-animation = &"Attack"
-frame = 7
-frame_progress = 0.943397
+animation = &"Special"
+frame = 39
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="PlayerDetection" type="Area2D" parent="."]
@@ -746,6 +748,12 @@ position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_t1jx7")
 
 [node name="DeathSound" parent="." instance=ExtResource("5_q3iwf")]
+
+[node name="CrystalBeamSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_y6hlr")
+
+[node name="TremorSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_v2sak")
 
 [node name="CrystalBeamTimer" type="Timer" parent="."]
 wait_time = 2.0

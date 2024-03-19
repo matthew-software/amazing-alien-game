@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://2xi0280dnfp3"]
+[gd_scene load_steps=22 format=3 uid="uid://2xi0280dnfp3"]
 
 [ext_resource type="Texture2D" uid="uid://cj4unpsjil6cr" path="res://art/tilesets/dungeon_tileset.png" id="1_a2qmm"]
 [ext_resource type="Texture2D" uid="uid://cf8pa6xr5mhk3" path="res://art/backgrounds/parallax_night_sky.png" id="1_hk72f"]
@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cvul4rgmjij2m" path="res://art/backgrounds/parallax_foreground.png" id="12_4veie"]
 [ext_resource type="PackedScene" uid="uid://yex5sd6v1s3m" path="res://entities/boss/super_boss.tscn" id="12_dvkq1"]
 [ext_resource type="PackedScene" uid="uid://dn8sujw4tlrla" path="res://entities/enemies/bat.tscn" id="14_d8g28"]
-[ext_resource type="PackedScene" uid="uid://tifntdyspoxk" path="res://entities/enemies/red_fireball.tscn" id="15_sf2n0"]
-[ext_resource type="PackedScene" uid="uid://c8hndqfm32rh" path="res://entities/enemies/blue_fireball.tscn" id="16_8geea"]
+[ext_resource type="PackedScene" uid="uid://tifntdyspoxk" path="res://entities/enemies/fireball_red.tscn" id="16_6e8gv"]
+[ext_resource type="PackedScene" uid="uid://c8hndqfm32rh" path="res://entities/enemies/fireball_blue.tscn" id="16_8geea"]
+[ext_resource type="AudioStream" uid="uid://4chl3wjxtcjn" path="res://audio/effects/incinerate.wav" id="17_015y7"]
 [ext_resource type="PackedScene" uid="uid://iwbpjvynh3ww" path="res://entities/attacks/crystal_beam.tscn" id="17_xkrxt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aidg"]
@@ -602,16 +603,16 @@ position = Vector2(2832, 336)
 position = Vector2(344, 272)
 
 [node name="Bat2" parent="Enemies" instance=ExtResource("14_d8g28")]
-position = Vector2(552, 560)
+position = Vector2(456, 560)
 
-[node name="RedFireball" parent="Enemies" instance=ExtResource("15_sf2n0")]
-position = Vector2(544, 664)
+[node name="FireballRed" parent="Enemies" instance=ExtResource("16_6e8gv")]
+position = Vector2(544, 672)
 
-[node name="RedFireball2" parent="Enemies" instance=ExtResource("15_sf2n0")]
-position = Vector2(472, 664)
+[node name="FireballRed2" parent="Enemies" instance=ExtResource("16_6e8gv")]
+position = Vector2(640, 672)
 
-[node name="BlueFireball" parent="Enemies" instance=ExtResource("16_8geea")]
-position = Vector2(752, 448)
+[node name="FireballBlue" parent="Enemies" instance=ExtResource("16_8geea")]
+position = Vector2(768, 448)
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -637,6 +638,9 @@ position = Vector2(2720, 320)
 
 [node name="CrystalBeam2" parent="." instance=ExtResource("17_xkrxt")]
 position = Vector2(2944, 320)
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_015y7")
 
 [connection signal="attacking_finished" from="Enemies/SuperBoss" to="." method="_on_super_boss_attacking_finished"]
 [connection signal="attacking_started" from="Enemies/SuperBoss" to="." method="_on_super_boss_attacking_started"]

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://4chl3wjxtcjn"
-path="res://.godot/imported/incinerate.wav-38d045a3a3ab856933ea329b2aab1f8d.sample"
+uid="uid://cqtimayg1t2sa"
+path="res://.godot/imported/shatter.wav-5539d34275b67ab98f8782b788309d21.sample"
 
 [deps]
 
-source_file="res://audio/effects/incinerate.wav"
-dest_files=["res://.godot/imported/incinerate.wav-38d045a3a3ab856933ea329b2aab1f8d.sample"]
+source_file="res://audio/effects/shatter.wav"
+dest_files=["res://.godot/imported/shatter.wav-5539d34275b67ab98f8782b788309d21.sample"]
 
 [params]
 
